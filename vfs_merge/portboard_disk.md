@@ -49,4 +49,8 @@ the name conventions for the name of the port is the `<port>-<board>` value. thi
     PortDiskInfo("rp2-pico", start_address=0x100A_0000, end_address=0x1020_0000),  # (1408K):
 ```
 
+## other ports 
+I've not yet looked at other ports.
+The ports that use a `.uf2` file should be able to use an approach similar to the `rp2`.
 
+The difficult part will be to determine the** starting address** and **size** for the file system for each specific port, board and version.
