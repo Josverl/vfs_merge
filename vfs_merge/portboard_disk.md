@@ -16,10 +16,20 @@ factory,  app,  factory, 0x10000, 0x1F0000,
 vfs,      data, fat,     0x200000, 0x200000,
 ```
 
-The relevant part is the line with the `vfs` entry. 
+The relevant part is the line with the `vfs` entry.   
 The `vfs` entry defines the start address and the size of the partition.
- - The **start address** is the offset of the partition table itself plus the offset of the partition.
+ - The **start_address** is the Offset.
+ - the **image_size** is the Size.
 
+The corresponding definition in portboard_disk.py is:  
+``` python
+    PortDiskInfo(
+        "esp32-generic",
+        start_address=0x0020_0000,
+        image_size=0x0020_0000,
+        flash_size=0x40_0000,
+    ),  # 4MB
+```
 
 ## rp2:
 
@@ -42,11 +52,15 @@ Build Information
 
 ```
 Then you can use the values in `embedded drive:  0x100a0000-0x10200000 (1408K)` to add the ports's disk information to the diskportinfo.py file.
-the name conventions for the name of the port is the `<port>-<board>` value. this is also used as a prefix in the micropython prebuilt binaries: `rp2-pico-20230426-v1.20.0.uf2`.
+The naming convention for the name of the port is the `<port>-<board>` value. This is commonly (_but not always_) used as a prefix in the MicroPython prebuilt binaries: `rp2-pico-20230426-v1.20.0.uf2`.
+
 
 ```python
-
-    PortDiskInfo("rp2-pico", start_address=0x100A_0000, end_address=0x1020_0000),  # (1408K):
+    PortDiskInfo(
+        "rp2-pico",
+        start_address=0x100A_0000,
+        end_address=0x1020_0000,
+    ),  # (1408K):
 ```
 
 ## other ports 
