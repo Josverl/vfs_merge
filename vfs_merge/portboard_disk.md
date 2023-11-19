@@ -5,7 +5,7 @@
 the esp32 port uses the partition table to get the information about the partitions.
 The partition table is defined in the `partitions.csv` file in the `ports/esp32` directory.
 
-ports/esp32/partitions-4MiB.csv:
+[ports/esp32/partitions-4MiB.csv](https://github.com/micropython/micropython/blob/master/ports/esp32/partitions-4MiB.csv):
 ```csv
 # Notes: the offset of the partition table itself is set in
 # $IDF_PATH/components/partition_table/Kconfig.projbuild.
@@ -18,7 +18,7 @@ vfs,      data, fat,     0x200000, 0x200000,
 
 The relevant part is the line with the `vfs` entry. 
 The `vfs` entry defines the start address and the size of the partition.
-The start address is the offset of the partition table itself plus the offset of the partition.
+ - The **start address** is the offset of the partition table itself plus the offset of the partition.
 
 
 ## rp2:
