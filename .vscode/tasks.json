@@ -1,0 +1,48 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}",
+    },
+    "tasks": [
+        {
+            "label": "vfs_merge",
+            "detail": "create a littlefs image from the srcs folder and merge it into the firmware image",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} tools/vfs_merge.py",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "mpremote_upload",
+            "detail": "Upload the source to the board via mpremote, import boot and main",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                " -m mpremote connect rfc2217://localhost:4000 cp -r src/ : + exec --no-follow 'import boot;import main'"
+            ],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Start WokWi emulator",
+            "detail": "Load the source files and (re)Start the WokWi emulator",
+            "dependsOn": "vfs_merge",
+            "command": "${command:wokwi-vscode.start}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "type": "Live Preview",
+            "workspacePath": "d:\\repos\\wokwi_esp32_micropython",
+            "problemMatcher": [],
+            "label": "Live Preview: Run Server"
+        }
+    ]
+}

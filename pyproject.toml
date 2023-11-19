@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "vfs-merge"
+version = "0.1.0"
+description = "Merge a MicroPython firmware and with source files into a single binary that can be flashed to a device."
+authors = ["Jos Verlinde <jos_verlinde@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "vfs_merge/**/*.*"}]
+
+
+[tool.poetry.scripts]
+vfsmerge = "vfs_merge.__main__:cli"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+loguru = "^0.7.2"
+python-dotenv = "^1.0.0"
+littlefs-python = "^0.8.0"
+esptool = "4.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
