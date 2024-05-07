@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vfs-merge"
-version = "0.1.0"
+version = "0.1.1"
 description = "Merge a MicroPython firmware and with source files into a single binary that can be flashed to a device."
 authors = ["Jos Verlinde <jos_verlinde@hotmail.com>"]
 license = "MIT"

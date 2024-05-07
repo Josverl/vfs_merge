@@ -64,6 +64,11 @@ port_info_list: List[PortDiskInfo] = [
         image_size=0x0020_0000,
         flash_size=0x40_0000,
     ),  # 4MB
+    PortDiskInfo(
+        "rp2-pico",
+        start_address=0x100A_0000,
+        end_address=0x1020_0000,
+    ),  # (1408K):
     # pico_w = 0x1012c000-0x10200000 (848K)
     PortDiskInfo(
         "rp2-pico_w",
@@ -84,11 +89,7 @@ port_info_list: List[PortDiskInfo] = [
         image_size=0x0060_0000,
         flash_size=0x80_0000,
     ),  # 8MB
-    PortDiskInfo(
-        "rp2-pico",
-        start_address=0x100A_0000,
-        end_address=0x1020_0000,
-    ),  # (1408K):
+
     PortDiskInfo(
         "pimoroni_picolipo_16mb",
         start_address=0x1010_0000,

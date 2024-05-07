@@ -162,7 +162,8 @@ if __name__ == "__main__":
     cli()
 
 # TODO: test on linux
-# TODO:  add -verbose option to control logging
+# TODO: use rich-click
+# TODO: add --verbose option to control logging
 # Low PRIO
 # todo: test with rp2* ports that are not in the list
 # todo: add support for esp32-s2 and other boards
