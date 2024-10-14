@@ -9,6 +9,16 @@ Merge
  and write the resulting firmware image to : 
     - `build/firmware.bin` or `build/firmware.uf2`:
 
+## Ports and boards
+
+As the memory laout of the different ports and boards differ, vfs merge needs to be aware of this.
+If you need to merge firmware that is targeted to a board that is not yet supported, 
+You can read how to get the correct addresses / locations that are needed to be able to place the file system at the moemry address where it is expected.
+https://github.com/Josverl/vfs_merge/blob/main/vfs_merge/portboard_disk.md
+
+Please create a Issue or PR with any new board and the relevant info, so that i can update the configurations for others to benefit from,
+or create an issue if you cant find the correct information.
+
 ## Esp32 
 `vfsmerge --port esp32 --firmware ./firmware`
 ``` log
